@@ -2,65 +2,6 @@ var currentURL = "";
 var currentId = "";
 var currentHostname = "";
 
-
-chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
-//	  if(request.method === "logout")
-//	  {
-//		  //alert("bg listener logout method");
-//		  docCookies.removeItem("screenname");
-//		  docCookies.removeItem("this_access_token");
-//		  sendResponse({message: "You are now logged out."});
-//	  }  
-//	  else if(request.method == "getEndpoint") // don't need a getter for this as the receiver page can get this directly from cookie
-//	  {
-//		  sendResponse({endpoint: endpoint});
-//	  }  
-//	  else if(request.method == "getCounts") // don't need a getter for this as the receiver page can get this directly from cookie
-//	  {
-//		  if(user_jo && typeof user_jo.notification_count !== "undefined" && user_jo.notification_count !== null && typeof user_jo.newsfeed_count !== "undefined" && user_jo.newsfeed_count !== null)
-//			  sendResponse({no: user_jo.notification_count, nf: user_jo.newsfeed_count});
-//		  else
-//			  sendResponse({no: 0, nf: 0});
-//	  } 
-//	  else if(request.method === "getHNAuthToken") // don't need a getter for this as the receiver page can get this directly from cookie
-//	  {
-//		  var tabid = 0;
-//		  chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
-//			  tabid = tabs[0].id;
-//			  $.ajax({ 
-//					type: 'GET', 
-//					url: endpoint, 
-//					data: {
-//						method: "getHNAuthToken",
-//			            screenname: request.detected_screenname
-//			        },
-//			        dataType: 'json',
-//			        timeout: 10000,
-//			        async: true, 
-//			        success: function (data, status) {
-//			        	if(data.response_status === "success")
-//			        	{	
-//			        		chrome.tabs.sendMessage(tabid, {method: "gotHNAuthToken", token: data.token, manual_or_automatic: request.manual_or_automatic}, function(response) {});
-//			        	}
-//			        	else if(data.response_status === "error")
-//			        	{
-//			        		chrome.tabs.sendMessage(tabid, {method: "gotHNAuthToken", token: null}, function(response) {});
-//			        	}	
-//			        	else
-//			        	{
-//			        		chrome.tabs.sendMessage(tabid, {method: "gotHNAuthToken", token: null}, function(response) {});
-//			        	}
-//			        },
-//			        error: function (XMLHttpRequest, textStatus, errorThrown) {
-//			        	console.log("getHNAuthToken ajax error");
-//			            chrome.tabs.sendMessage(tabid, {method: "gotHNAuthToken", token: null}, function(response) {});
-//			        }
-//			  });
-//		  });
-//	  }
-  });
-
 //REAL FUNCTIONS, IN EXECUTION ORDER TOP2BOTTOM (sort of) 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, updatingtab) {
 	if (changeInfo.status === "loading") // also fires at "complete", which I'm ignoring here. Only need one (this one).
@@ -109,10 +50,3 @@ chrome.tabs.onActivated.addListener(function(activeInfo) {
 	});
 }); 
 	
-// FIRSTRUN 
-//chrome.runtime.onInstalled.addListener(function(details){
-//    if(details.reason == "install"){
-//    	chrome.tabs.create({url: chrome.extension.getURL("firstrun.html")});
-//    }else if(details.reason == "update"){
-//    }
-//});
