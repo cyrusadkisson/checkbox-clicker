@@ -1,7 +1,7 @@
 {
     "name": "Click all checkboxes",
     "short_name": "Click all checkboxes",
-    "version": "0.001",
+    "version": "0.100",
     "manifest_version": 2,
     "description": "Click (emphasis on the \"CLICK\", not just CHECK) all checkboxes on a page, firing any click events that may be attached to them.",
     "icons": {
