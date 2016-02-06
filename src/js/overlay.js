@@ -1,5 +1,3 @@
-var bg = chrome.extension.getBackgroundPage();
-var currentURL;
 
 document.addEventListener('DOMContentLoaded', function () {
 	 chrome.tabs.getSelected(null, function(tab) {
@@ -11,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function doOverlay()
 {
 	var o_html = "";
-	o_html = o_html + "<div width=\"400px\">";
+	o_html = o_html + "<div style=\"width:300px;padding:20px;text-align:middle;font-size:24px;font-weight:bold\">";
 	o_html = o_html + "<a href=\"#\" id=\"test_link\">CLICK ALL CHECKBOXES</a>";
 	o_html = o_html + "</div>";
 	$("#overlay_div").html(o_html);
